@@ -1,0 +1,27 @@
+// 
+// Decompiled by Procyon v0.5.36
+// 
+
+package org.apache.activemq.leveldb.replicated;
+
+import scala.runtime.TraitSetter;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(bytes = "\u0006\u0001\r<Q!\u0001\u0002\t\u00025\t1DU3qY&\u001c\u0017\r^3e\u0019\u00164X\r\u001c#C'R|'/\u001a+sC&$(BA\u0002\u0005\u0003)\u0011X\r\u001d7jG\u0006$X\r\u001a\u0006\u0003\u000b\u0019\tq\u0001\\3wK2$'M\u0003\u0002\b\u0011\u0005A\u0011m\u0019;jm\u0016l\u0017O\u0003\u0002\n\u0015\u00051\u0011\r]1dQ\u0016T\u0011aC\u0001\u0004_J<7\u0001\u0001\t\u0003\u001d=i\u0011A\u0001\u0004\u0006!\tA\t!\u0005\u0002\u001c%\u0016\u0004H.[2bi\u0016$G*\u001a<fY\u0012\u00135\u000b^8sKR\u0013\u0018-\u001b;\u0014\u0005=\u0011\u0002CA\n\u0017\u001b\u0005!\"\"A\u000b\u0002\u000bM\u001c\u0017\r\\1\n\u0005]!\"AB!osJ+g\rC\u0003\u001a\u001f\u0011\u0005!$\u0001\u0004=S:LGO\u0010\u000b\u0002\u001b!)Ad\u0004C\u0001;\u0005Y1M]3bi\u0016|V/^5e+\u0005q\u0002CA\u0010%\u001b\u0005\u0001#BA\u0011#\u0003\u0011a\u0017M\\4\u000b\u0003\r\nAA[1wC&\u0011Q\u0005\t\u0002\u0007'R\u0014\u0018N\\4\t\u000b\u001dzA\u0011\u0001\u0015\u0002\u000f9|G-Z0jIR\u0011\u0011f\f\t\u0003U5r!aE\u0016\n\u00051\"\u0012A\u0002)sK\u0012,g-\u0003\u0002&])\u0011A\u0006\u0006\u0005\u0006a\u0019\u0002\r!M\u0001\nI&\u0014Xm\u0019;pef\u0004\"AM\u001b\u000e\u0003MR!\u0001\u000e\u0012\u0002\u0005%|\u0017B\u0001\u001c4\u0005\u00111\u0015\u000e\\3\u0007\u000fA\u0011\u0001\u0013aA\u0001qM\u0011q'\u000f\t\u0003umj\u0011\u0001B\u0005\u0003y\u0011\u0011A\u0002T3wK2$%i\u0015;pe\u0016DQAP\u001c\u0005\u0002}\na\u0001J5oSR$C#\u0001!\u0011\u0005M\t\u0015B\u0001\"\u0015\u0005\u0011)f.\u001b;\t\u000f\u0011;\u0004\u0019!C\u0001;\u0005i1/Z2ve&$\u0018\u0010V8lK:DqAR\u001cA\u0002\u0013\u0005q)A\ttK\u000e,(/\u001b;z)>\\WM\\0%KF$\"\u0001\u0011%\t\u000f%+\u0015\u0011!a\u0001=\u0005\u0019\u0001\u0010J\u0019\t\r-;\u0004\u0015)\u0003\u001f\u00039\u0019XmY;sSRLHk\\6f]\u0002B#AS'\u0011\u00059\u000bV\"A(\u000b\u0005A#\u0012!\u00022fC:\u001c\u0018B\u0001*P\u00051\u0011U-\u00198Qe>\u0004XM\u001d;z\u0011\u0015!v\u0007\"\u0001V\u0003A9W\r^*fGV\u0014\u0018\u000e^=U_.,g\u000eF\u0001\u001f\u0011\u00159v\u0007\"\u0001Y\u0003A\u0019X\r^*fGV\u0014\u0018\u000e^=U_.,g\u000e\u0006\u0002A3\"9\u0011JVA\u0001\u0002\u0004q\u0002\"B\u00148\t\u0003YV#A\u0015\t\u000bu;D\u0011A.\u0002\u000fM$xN]3JI\")ql\u000eC\u0001A\u0006Y1\u000f^8sK&#w\fJ3r)\t\u0001\u0015\rC\u0003c=\u0002\u0007\u0011&A\u0003wC2,X\r")
+public interface ReplicatedLevelDBStoreTrait
+{
+    String securityToken();
+    
+    @TraitSetter
+    void securityToken_$eq(final String p0);
+    
+    void setSecurityToken(final String p0);
+    
+    String node_id();
+    
+    String storeId();
+    
+    void storeId_$eq(final String p0);
+    
+    String getSecurityToken();
+}
