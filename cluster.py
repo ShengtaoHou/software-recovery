@@ -129,7 +129,7 @@ if __name__ == "__main__":
     sc.setLogLevel("WARN")
 
     input_file = "edgeList.csv"
-    output_file = "output_cluster.csv"
+    output_file = "output_cluster_best_size.csv"
 
     rdd = sc.textFile(input_file)
 
@@ -194,6 +194,9 @@ if __name__ == "__main__":
         userDict[user1].remove(user2)
         userDict[user2].remove(user1)
 
+        # 最大cluster size < 339 之后两个文件就分开了. modularity 此时 0.363，不是最大值
+        # if isConnected('401', '124', userDict, set([])) == False:
+        #     print("--------break up --------!!!!!!!!!!!!!!!!!!")
 
         if isConnected(user1, user2, userDict, set([])):
             continue
@@ -212,7 +215,8 @@ if __name__ == "__main__":
         #     maxCommunities = preCommunities
         #     break
 
-        if len(communities[0]) < 605:
+        # if len(communities[0]) < 605:  # 最佳的modularity 下的 cluster
+        if len(communities[0]) < 350: # 最小的cluster size的结果
             maxQ = Q
             maxCommunities = communities
             break

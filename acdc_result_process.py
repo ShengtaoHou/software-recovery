@@ -17,6 +17,7 @@ outputFile = open("acdc_cluster.txt", "w+")
 
 for c in clusters:
     print(c)
+    if len(clusters[c]) == 0: continue
     outputFile.write(str(len(clusters[c]))+",")
     for i in clusters[c]:
         outputFile.write(i+",")
