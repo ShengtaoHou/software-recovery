@@ -1,22 +1,29 @@
 # Final Project
 
-## Subject System
-ActiveMq(Version 5.5.0)
+## Subject System and Security Decision
+- subject system: ActiveMq(Version 5.5.0)
+- security decision: JAAS Authentication
 
-## Environment Set Up
+[more details](https://docs.google.com/document/d/1ZSaXX7eSMZGJSwvm-Qe8rIkqL37fCvGvwHrxXrq9_OU/edit?usp=sharing)
+
+
+
+## Environment
 - Spark 2.4.4
 
 - Python 3.7
 
-## General Ddea
+
+
+## General Idea
 
 ![img](https://lh5.googleusercontent.com/kzJY-CE27AlSHg6s9J-WywYFV_cj-zAjyROySlvi1Ek7y-Bv94Aznk56vO0NATVSM4Zvziv3KEau8PGAcaFmXhSdsWcWDFNaO5tB7a2tdqcp4TWUQ3CTb1IcoLiJ_LZd0NC2qkdc)
 
-Represent each file as a node in graph. Add an edge between two nodes if there is a dependency relationship between them. Finished construction of dependency graph. 
+Represent each file as a node in graph. Add an edge between two nodes if there is a dependency relationship between them. Finished construction of **dependency graph**. 
 
-Run finding similar documents algorithm on all the source code. Add edge between two node if their corresponding files are very simlar. Finished construction of sementic graph.
+Run finding similar documents algorithm on all the source code. Add edge between two node if their corresponding files are very simlar. Finished construction of **sementic graph**.
 
-Combine two graph into combined graph and run Girvan–Newman algorithm on this graph to detect communities(clusters) 
+Combine two graph into combined graph and run **Girvan–Newman** algorithm on this graph to detect communities(clusters) 
 
 ## How To Run
 1. Extra `activemq-all-5.10.0.jar` and decompile it to java source code (See activemq folder).
@@ -28,6 +35,7 @@ Combine two graph into combined graph and run Girvan–Newman algorithm on this 
 
 ## Results
 [clustering results](https://github.com/ShengtaoHou/HYZ-final-project/blob/master/output_cluster.csv)
+
 
 ## Hierachical Decomposition Visualization
 ![img](https://github.com/ShengtaoHou/HYZ-final-project/blob/master/Visualization/hierachical-decomposition.png)
