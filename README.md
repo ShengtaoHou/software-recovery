@@ -20,7 +20,7 @@ Combine two graph into combined graph and run Girvan–Newman algorithm on this 
 
 ## Experiment step
 1. Extra `activemq-all-5.10.0.jar` and decompile it to java source code (See activemq folder).
-2. Run `structure_graph.py` to generate dependency graph. Store graph information in intermediate files (`edgeList.csv` and `indexToNode.csv``).
+2. Run `structure_graph.py` to generate dependency graph. Store graph information in intermediate files (`edgeList.csv` and `indexToNode.csv`).
 3. Run `semantic_preprocess.py` to prepare for semamtic analysis.
 4. Run `semantic_graph.py` to generate semantic graph. Add additional graph information to intermediate files
 5. Run `cluster.py` to detect communities(clusters). The result is in `output_cluster.csv`
