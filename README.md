@@ -26,4 +26,8 @@ Combine two graph into combined graph and run Girvan–Newman algorithm on this 
 5. Run cluster.py to detect communities(clusters). The result is in output_cluster.csv
 
 
+## Results
 
+
+## Hierachical Decomposition Visualization
+![img](https://github.com/ShengtaoHou/HYZ-final-project/blob/master/Visualization/hierachical-decomposition.png)
