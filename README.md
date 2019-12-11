@@ -35,7 +35,8 @@ Combine two graph into combined graph and run **Girvan–Newman** algorithm on t
 
 ## Results
 [clustering results](https://github.com/ShengtaoHou/HYZ-final-project/blob/master/output_cluster.csv)
-![img](https://github.com/ShengtaoHou/HYZ-final-project/blob/master/Visualization/cluster-result-pic.png)
+
+![img](https://github.com/ShengtaoHou/HYZ-final-project/blob/master/Visualization/cluster-pic.png)
 
 
 ## Hierachical Decomposition Visualization
