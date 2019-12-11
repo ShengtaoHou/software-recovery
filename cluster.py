@@ -137,7 +137,7 @@ if __name__ == "__main__":
         .map(lambda x: (x[0], x[1]))
 
     M = edges.count()
-    print("edgesNumber:", M)
+    print("Total edge number:", M)
 
     # record every users' neighbor, (user1, [user2, user3...])
     userNeighbor = edges.flatMap(lambda x: [(x[0], [x[1]]) , (x[1], [x[0]])]).reduceByKey(lambda x, y : x + y)
@@ -151,10 +151,11 @@ if __name__ == "__main__":
     betweenness = userNeighbor.flatMap(lambda x: GirvanNewman(x[0])).reduceByKey(lambda x, y: x + y)\
     .sortBy(lambda x: - x[1]).collect()
 
-    print("betweeness finish\n")
+    print("Finish betweeness calculation")
     nodes = sorted(edges.flatMap(lambda x: [x[0], x[1]]).distinct().collect())
     nodesNumber = len(nodes)
-    print("nodesNumber",nodesNumber)
+    print("Nodes number:",nodesNumber, "\n")
+
 
     K = dict(userNeighbor.map(lambda x: (x[0], len(x[1]))).collect())
 
@@ -185,6 +186,12 @@ if __name__ == "__main__":
 
     bList = betweenness
 
+    sizeDiff = []
+
+    preMaxSize = 1648
+
+    preCommunities = maxCommunities
+
     while(len(bList) > 0):
         b = bList.pop(0)
         user1 = b[0][0]
@@ -194,36 +201,50 @@ if __name__ == "__main__":
         userDict[user1].remove(user2)
         userDict[user2].remove(user1)
 
-        # 最大cluster size < 339 之后两个文件就分开了. modularity 此时 0.363，不是最大值
-        # if isConnected('401', '124', userDict, set([])) == False:
-        #     print("--------break up --------!!!!!!!!!!!!!!!!!!")
-
         if isConnected(user1, user2, userDict, set([])):
             continue
 
         # recalculate the betweenness
         bList = userNeighbor.flatMap(lambda x: GirvanNewman(x[0])).reduceByKey(lambda x, y: x + y) \
             .sortBy(lambda x: - x[1]).collect()
-
         # calculate the modularity of communities
         communities = findConnectedGraph(userDict)
         Q = calculateModularity(communities, modularityDict)
 
-        # update the maximum modularity and best communities
-        # if Q < preQ:
-        #     maxQ = preQ
-        #     maxCommunities = preCommunities
-        #     break
+
+        print("\nCommunities number: ", len(communities))
+        print("Max size communities: ",len(communities[0]))
+        print("Current Modularity: ", Q)
+
+        curComLen = []
+        for c in communities:
+            curComLen.append(len(c))
+
+        preComLen = []
+        for c in preCommunities:
+            preComLen.append(len(c))
+
+
+        interSet = list(set(curComLen) & set(preComLen))
+        parent = list(set(preComLen) - set(interSet))
+        children = list( set(curComLen) - set(interSet))
+
+        print("Split communities ", parent, " into two communities: ", children)
 
         # if len(communities[0]) < 605:  # 最佳的modularity 下的 cluster
-        if len(communities[0]) < 350: # 最小的cluster size的结果
+
+
+
+
+        if len(communities[0]) <= 350: # 最小的cluster size的结果
             maxQ = Q
             maxCommunities = communities
             break
 
 
-        print(Q)
-        print(len(communities[0]))
+
+        preMaxSize = len(communities[0])
+
 
         preQ = Q
         preCommunities = communities
