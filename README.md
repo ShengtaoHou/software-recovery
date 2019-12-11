@@ -26,7 +26,7 @@ Run finding similar documents algorithm on all the source code. Add edge between
 Combine two graph into combined graph and run **Girvan–Newman** algorithm on this graph to detect communities(clusters) 
 
 ## How To Run
-1. Extra `activemq-all-5.10.0.jar` and decompile it to java source code (See activemq folder).
+1. Extra `activemq-all-5.10.0.jar` and decompile it to java source code (See `\activemq` folder).
 2. Run `structure_graph.py` to generate dependency graph. Store graph information in intermediate files (`edgeList.csv` and `indexToNode.csv`).
 3. Run `semantic_preprocess.py` to prepare for semamtic analysis.
 4. Run `semantic_graph.py` to generate semantic graph. Add additional graph information to intermediate files
